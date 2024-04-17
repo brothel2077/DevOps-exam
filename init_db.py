@@ -22,7 +22,8 @@ def init_dba():
                                             'login varchar (90) NOT NULL,'
                                             'sms varchar (90) NOT NULL,'
                                             'id1 integer NOT NULL,'
-                                            'date varchar (50) NOT NULL);'
+                                            'date varchar (50) NOT NULL '
+                                            'spec varchar (50) NOT NULL);'
                                             )
                                             
     cur.execute('INSERT INTO public.fio (name, date, spec) VALUES (%s, %s, %s)',
@@ -46,23 +47,26 @@ def init_dba():
                 'Лаборант')
                 )    
                            
-    cur.execute('INSERT INTO public.user (login, sms, id1, date) VALUES (%s, %s, %s, %s)',
+    cur.execute('INSERT INTO public.user (login, sms, id1, date, spec ) VALUES (%s, %s, %s, %s)',
                 ('+78986664502',
                 '5500',
                 2,
-                '12:15')
+                '12:15',
+                'Участковый врач')
                 )
-    cur.execute('INSERT INTO public.user (login, sms, id1, date) VALUES (%s, %s, %s, %s)',
+    cur.execute('INSERT INTO public.user (login, sms, id1, date, spec ) VALUES (%s, %s, %s, %s)',
                 ('+79196663409',
                 '0208',
                 1,
-                '13:00')
+                '13:00',
+                'Стоматолог')
                 )
-    cur.execute('INSERT INTO public.user (login, sms, id1, date) VALUES (%s, %s, %s, %s)',
+    cur.execute('INSERT INTO public.user (login, sms, id1, date, spec ) VALUES (%s, %s, %s, %s)',
                 ('+79265340071',
                 '3648',
                 4,
-                '07:25')
+                '07:25',
+                'Лаборант')
                 )
 
     conn.commit()
