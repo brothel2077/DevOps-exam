@@ -9,16 +9,16 @@
           <input type="text" name="login">
         </p>
         <p>
-          <label for="password">Password</label>
-          <input type="text" name="password">
+          <label for="password">SMS</label>
+          <input type="text" name="sms">
         </p>
         <p>
-          <input type="submit">
+          <input type="submit" = value"> 
         </p>
       </form>
       {% for data in user %}
         <div class='themes'>
-            <h3>#{{ data[0] }} | {{ data[1] }} | {{ data[2] }}
+            <h3>#{{ data[0] }} | {{ data[1] }} | {{ data[2] }} | {{ data[3] }}
         </div>
       {% endfor %}
 {% endblock %}

@@ -16,7 +16,7 @@ services:
 
   app:
     container_name: exam
-    image: zlolhere/exam:latest
+    image: brothel/exam1:tagname
     build:
       context: .
       dockerfile: Dockerfile
