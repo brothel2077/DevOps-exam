@@ -16,7 +16,7 @@ services:
 
   app:
     container_name: exam
-    image: brothel/exam1:tagname
+    image: brothel/exam1:latest
     build:
       context: .
       dockerfile: Dockerfile
