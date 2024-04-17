@@ -10,50 +10,59 @@ def init_dba():
             
     cur = conn.cursor()
 
-    cur.execute('DROP TABLE IF EXISTS public.themes;')
-    cur.execute('CREATE TABLE public.themes (id serial PRIMARY KEY,'
+    cur.execute('DROP TABLE IF EXISTS public.fio;')
+    cur.execute('CREATE TABLE public.fio (id serial PRIMARY KEY,'
                                             'name varchar (50) NOT NULL,'
-                                            'cnt_mess integer NOT NULL);'
+                                            'date varchar (50) NOT NULL,'
+                                            'spec varchar (50) NOT NULL);'
                                             )
                                             
     cur.execute('DROP TABLE IF EXISTS public.user;')
     cur.execute('CREATE TABLE public.user (id serial PRIMARY KEY,'
-                                            'login varchar (80) NOT NULL,'
-                                            'password varchar (90) NOT NULL,'
-                                            'carma integer NOT NULL);'
+                                            'login varchar (90) NOT NULL,,'
+                                            'sms integer NOT NULL,'
+                                            'id1 integer NOT NULL,'
+                                            'date varchar (50) NOT NULL);'
                                             )
                                             
-    cur.execute('INSERT INTO public.themes (name, cnt_mess) VALUES (%s, %s)',
-                ('Аниме',
-                6772)
+    cur.execute('INSERT INTO public.fio (name, date, spec) VALUES (%s, %s, %s)',
+                ('Ходяков Иван Валерьевич',
+                '08:00-15:00',
+                'Стоматолог')
                 )
-    cur.execute('INSERT INTO public.themes (name, cnt_mess) VALUES (%s, %s)',
-                ('Приколы',
-                8054)
+    cur.execute('INSERT INTO public.fio (name, date, spec) VALUES (%s, %s, %s)',
+                ('Чечевский Андрей Сергеевич',
+                '09:00-18:00',
+                'Участковый врач')
                 )
-    cur.execute('INSERT INTO public.themes (name, cnt_mess) VALUES (%s, %s)',
-                ('Рецепты',
-                560)
+    cur.execute('INSERT INTO public.fio (name, date, spec) VALUES (%s, %s, %s)',
+                ('Ерулина Жанна Аркадьевна',
+                '12:00-16:00',
+                'Психолог')
                 )
-    cur.execute('INSERT INTO public.themes (name, cnt_mess) VALUES (%s, %s)',
-                ('Садоводство',
-                122)
+    cur.execute('INSERT INTO public.fio (name, date, spec) VALUES (%s, %s, %s)',
+                ('Пастух Ольга Михайловна',
+                '07:00-10:00',
+                'Лаборант')
                 )    
                            
-    cur.execute('INSERT INTO public.user (login, password, carma) VALUES (%s, %s, %s)',
-                ('animeshnik',
-                'mikumiku',
-                88)
+    cur.execute('INSERT INTO public.user (login, sms, id1, date) VALUES (%s, %s, %s, %s)',
+                ('+78986664502',
+                5500,
+                2,
+                '12:15')
                 )
-    cur.execute('INSERT INTO public.user (login, password, carma) VALUES (%s, %s, %s)',
-                ('babavalya',
-                'vnuchok0709',
-                5)
+    cur.execute('INSERT INTO public.user (login, sms, id1, date) VALUES (%s, %s, %s, %s)',
+                ('+79196663409',
+                0208,
+                1,
+                '13:00')
                 )
-    cur.execute('INSERT INTO public.user (login, password, carma) VALUES (%s, %s, %s)',
-                ('anonimus',
-                'hacktheworld',
-                -20)
+    cur.execute('INSERT INTO public.user (login, sms, id1, date) VALUES (%s, %s, %s, %s)',
+                ('+79265340071',
+                3648,
+                4,
+                '07:25')
                 )
 
     conn.commit()

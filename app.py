@@ -17,7 +17,7 @@ def get_db_connection():
 def index():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute('SELECT * FROM public.themes;')
+    cur.execute('SELECT * FROM public.fio;')
     themes = cur.fetchall()
     cur.close()
     conn.close()
@@ -29,11 +29,11 @@ def auth():
     message =''
     if request.method == 'POST':
         login = request.form.get('login')
-        password = request.form.get('password')   
+        password = request.form.get('sms')   
         conn = get_db_connection()
         cur = conn.cursor()
         try:
-            cur.execute('SELECT login, password, carma FROM public.user where login = ' +'\'' + str(login) + '\' and password = '+ '\'' + str(password) + '\';')
+            cur.execute('SELECT login, sms, id1, date FROM public.user where login = ' +'\'' + str(login) + '\' and sms = '+ '\'' + str(password) + '\';')
             user = cur.fetchall()
             cur.close()
             conn.close()
