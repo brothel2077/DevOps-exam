@@ -17,7 +17,7 @@ def get_db_connection():
 def index():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute('SELECT * FROM public.fio;')
+    cur.execute('SELECT * FROM public.namep;')
     themes = cur.fetchall()
     cur.close()
     conn.close()
@@ -33,7 +33,7 @@ def auth():
         conn = get_db_connection()
         cur = conn.cursor()
         try:
-            cur.execute('SELECT login, sms, id1, date FROM public.user where login = ' +'\'' + login + '\' and sms = '+ '\'' + password + '\';')
+            cur.execute('SELECT login, sms, id1, chair, vagon FROM public.user where login = ' +'\'' + login + '\' and sms = '+ '\'' + password + '\';')
             user = cur.fetchall()
             cur.close()
             conn.close()
